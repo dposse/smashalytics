@@ -1,4 +1,8 @@
-Readme for smashalytics
+smashalytics
+
+Data gathering and visualization project using tournament results from Super Smash Brothers games.
+
+Project outline
 
 1. Get data
 
