@@ -8,6 +8,8 @@ Project outline
 
     1.1 where is the data?
 
+      1.1.1 using ssbwiki.com's list of national tournaments
+
     1.2 api's or webcrawler
 
     1.3 store locally? create server that stores data and updates at interval?
