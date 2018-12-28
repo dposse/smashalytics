@@ -11,7 +11,8 @@ request(url, function(error, response, body) {
 
   const $ = cheerio.load(body);
 
-  $('span.mw-headline').each( function(index, element) {
+  //grab all subtitles so this can be expanded in the future to include all tournaments
+  $('span.mw-headline').each( (index, element) => {
 
       var currentSubtitle = $(element).html();
       console.log(currentSubtitle);
