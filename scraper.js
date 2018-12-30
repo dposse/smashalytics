@@ -49,7 +49,38 @@ request(url, function(error, response, body) {
                                        .children().children().next();
 
         $(tableOfResults).each( (index, row) => {
-          console.log($(row).html());
+          //console.log($(row).html());
+
+          //console.log("\nend row\n\n");
+
+          var namehtml = $(row).children().html();
+          var name = $(namehtml).text();
+          var date  = $(row).children().next().html();
+          var entrants = $(row).children().next().next().html();
+          var winnerhtml = $(row).children().next().next().next().html();
+          var winner = $(winnerhtml).text().trim();
+          var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
+
+          console.log(name);
+          console.log(date);
+          console.log(entrants);
+          console.log(winner);
+          console.log(url);
+
+          if (winner) {
+            var tournament = {  name,
+                                date,
+                                entrants,
+                                winner,
+                                url };
+
+            tournamentData.push(tournament);
+
+            console.log("tournament added\n");
+
+          }
+
+
         });
 
 
@@ -58,6 +89,10 @@ request(url, function(error, response, body) {
 
   });
 
-
+  for (var tournament in tournamentData) {
+    if (tournamentData.hasOwnProperty(tournament)) {
+      console.log(tournament.name + "\n");
+    }
+  }
 
 });
