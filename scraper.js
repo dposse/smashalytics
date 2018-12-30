@@ -11,11 +11,20 @@ request(url, function(error, response, body) {
 
   const $ = cheerio.load(body);
 
-  //grab all subtitles so this can be expanded in the future to include all tournaments
   $('span.mw-headline').each( (index, element) => {
 
-      var currentSubtitle = $(element).html();
-      console.log(currentSubtitle);
+      //var currentSubtitle = $(element).html();
+      //console.log(currentSubtitle);
+
+      if ($(element).attr('id') == "Super_Smash_Bros._Ultimate") {
+
+        var tableOfResults = $(element).parent().next().next();
+
+        console.log(tableOfResults.html());
+
+
+      }
+
 
   });
 
