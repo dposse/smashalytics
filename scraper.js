@@ -48,8 +48,8 @@ request(url, function(error, response, body) {
         var tableOfResults = $(element).parent().next().next()
                                        .children().children().next();
 
-        $(tableOfResults).each( (index, element) => {
-          console.log($(element).html());
+        $(tableOfResults).each( (index, row) => {
+          console.log($(row).html());
         });
 
 
