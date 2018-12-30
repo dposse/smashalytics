@@ -49,9 +49,6 @@ request(url, function(error, response, body) {
                                        .children().children().next();
 
         $(tableOfResults).each( (index, row) => {
-          //console.log($(row).html());
-
-          //console.log("\nend row\n\n");
 
           var namehtml = $(row).children().html();
           var name = $(namehtml).text();
@@ -68,11 +65,11 @@ request(url, function(error, response, body) {
           console.log(url);
 
           if (winner) {
-            var tournament = {  name,
-                                date,
-                                entrants,
-                                winner,
-                                url };
+            var tournament = {  name: name,
+                                date: date,
+                                entrants: entrants,
+                                winner: winner,
+                                url: url };
 
             tournamentData.push(tournament);
 
@@ -81,18 +78,23 @@ request(url, function(error, response, body) {
           }
 
 
-        });
+        }); //end $(tableOfResults).each( (index, row) => {});
 
 
-      }
+      } //end if span id == ultimate
 
 
-  });
+  }); //end $(span).each( (index, element) => {});
 
-  for (var tournament in tournamentData) {
-    if (tournamentData.hasOwnProperty(tournament)) {
-      console.log(tournament.name + "\n");
-    }
+  for (var i=0; i<tournamentData.length; i++) {
+
+      console.log(tournamentData[i].name);
+      console.log(tournamentData[i].date);
+      console.log(tournamentData[i].entrants);
+      console.log(tournamentData[i].winner);
+      console.log(tournamentData[i].url);
+      console.log("\n");
+
   }
 
-});
+}); //end request
