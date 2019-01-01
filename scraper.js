@@ -36,15 +36,16 @@ request(url, function(error, response, body) {
               <tr> [TOURNAMENT INFO WE WANT] </tr>
 
           have already found the span with id for smash ultimate.
-          .parent() returns h2
-          .next() returns h3
-          .next() returns table that we want
+          .parent() returns h2, game title
+          .next() returns h3, year of tournaments in next table
+          .next() returns table that we want, table of tournaments in 2018
 
           .children() returns tbody
           .children() returns all the tr
           .next() skips first tr which has table titles but no tournament information
         */
 
+        //tableOfResults includes 2018 national tournaments
         var tableOfResults = $(element).parent().next().next()
                                        .children().children().next();
 
@@ -86,15 +87,19 @@ request(url, function(error, response, body) {
 
   }); //end $(span).each( (index, element) => {});
 
-  for (var i=0; i<tournamentData.length; i++) {
 
-      console.log(tournamentData[i].name);
-      console.log(tournamentData[i].date);
-      console.log(tournamentData[i].entrants);
-      console.log(tournamentData[i].winner);
-      console.log(tournamentData[i].url);
-      console.log("\n");
-
-  }
 
 }); //end request
+
+//check to see tournaments were added correctly
+//THIS ISNT WORKING BECAUSE OF JS ASYNCH
+for (var i=0; i<tournamentData.length; i++) {
+
+    console.log(tournamentData[i].name);
+    console.log(tournamentData[i].date);
+    console.log(tournamentData[i].entrants);
+    console.log(tournamentData[i].winner);
+    console.log(tournamentData[i].url);
+    console.log("\n");
+
+}

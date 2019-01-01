@@ -10,11 +10,15 @@ Project outline
 
       1.1.1 using ssbwiki.com's list of national tournaments
 
+      1.1.2 bracket data from each tournaments' ssbwiki page
+
     1.2 api's or webcrawler
+
+      1.2.1 javascript webcrawler using request and cheerio
 
     1.3 store locally? create server that stores data and updates at interval?
 
-      1.3.1 store in database (mongodb for mean?)
+      1.3.1 create csv file that d3.js can import
 2. Parse data - d3.js?
 3. Visualize
 
