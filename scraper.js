@@ -63,12 +63,6 @@ function scrapeTables() {
                 var winner = $(winnerhtml).text().trim();
                 var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
 
-                console.log(name);
-                console.log(date);
-                console.log(entrants);
-                console.log(winner);
-                console.log(url);
-
                 if (winner) {
                   var tournament = {  name: name,
                                       date: date,
@@ -78,7 +72,7 @@ function scrapeTables() {
 
                   tournamentData.push(tournament);
 
-                  console.log("tournament added\n");
+                  console.log(name + " added");
 
                 }
 
@@ -106,6 +100,7 @@ function scrapeTables() {
 } //end scrapeTables
 
 scrapeTables().then( () => {
+  console.log("\n");
   for (var i=0; i<tournamentData.length; i++) {
 
       console.log(tournamentData[i].name);
