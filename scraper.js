@@ -72,16 +72,13 @@ function scrapeTables() {
 
                   tournamentData.push(tournament);
 
-                  console.log(name + " added");
+                  console.log("Tournament %i added: %s",(index+1),name);
 
                 }
 
-
               }); //end $(tableOfResults).each( (index, row) => {});
 
-
             } //end if span id == ultimate
-
 
         }); //end $(span).each( (index, element) => {});
 
@@ -89,15 +86,33 @@ function scrapeTables() {
 
       } //end if
 
-      else {
-        reject();
-      }
+      else {  reject();  }
 
     }); //end request
 
-  });
-
+  }); //end promise
 } //end scrapeTables
+
+
+/*
+*   second scraping function
+*   goes to the urls in tournamentData, scrapes data from brackets
+*/
+function scrapeBrackets() {
+  return new Promise( (resolve, reject) => {
+
+      //TODO: put resolve and reject in request function
+
+  }); //end promise
+} //end scrapeBrackets
+
+
+/*
+* "main"
+* first scrapeTables from top level ssbwiki page
+* second scrapeBrackets from individual tournament pages
+* third write to csv
+*/
 
 scrapeTables().then( () => {
   console.log("\n");
