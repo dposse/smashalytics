@@ -6,10 +6,10 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 
 TODO in order:
 
-  create helper function to read table row DONE
+   ~create helper function to read table row~ DONE
 
-  get data from 2019 tournament table
+   ~get data from 2019 tournament table~ DONE
 
-  write to csv
+   write to csv
 
-  break down how to get bracket data
+   break down how to get bracket data
