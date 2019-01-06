@@ -50,18 +50,15 @@ function scrapeTables() {
                 .next() skips first tr which has table titles but no tournament information
               */
 
-              //tableOfResults includes 2018 national tournaments
-              var tableOfResults2018 = $(element).parent().next().next()
-                                             .children().children().next();
+              //get data from 2018 national tournaments
+              insertTableData($(element).parent().next().next()
+                                             .children().children().next());
 
-              insertTableData(tableOfResults2018);
-
-              //console.log($(element).parent().next().next())
-
-              var tableOfResults2019 = $(element).parent().next().next().next().next()
-                                            .children().children().next();
-
-              insertTableData(tableOfResults2019);
+              //get data from 2019 national tournaments
+              //from 2018 table, one .next() gets h3 with 2019
+              //  second .next() gets table of tournaments
+              insertTableData($(element).parent().next().next().next().next()
+                                            .children().children().next());
 
             } //end if span id == ultimate
 
