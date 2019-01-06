@@ -2,6 +2,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 const url = "https://www.ssbwiki.com/List_of_national_tournaments";
+var $;
 var tournamentData = [];
 
 /*
@@ -15,7 +16,7 @@ function scrapeTables() {
 
       if (!error && response.statusCode == 200) {
 
-        const $ = cheerio.load(body);
+        $ = cheerio.load(body);
 
         $('span.mw-headline').each( (index, element) => {
 
@@ -53,30 +54,7 @@ function scrapeTables() {
               var tableOfResults = $(element).parent().next().next()
                                              .children().children().next();
 
-              $(tableOfResults).each( (index, row) => {
-
-                var namehtml = $(row).children().html();
-                var name = $(namehtml).text();
-                var date  = $(row).children().next().html();
-                var entrants = $(row).children().next().next().html();
-                var winnerhtml = $(row).children().next().next().next().html();
-                var winner = $(winnerhtml).text().trim();
-                var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
-
-                if (winner) {
-                  var tournament = {  name: name,
-                                      date: date,
-                                      entrants: entrants,
-                                      winner: winner,
-                                      url: url };
-
-                  tournamentData.push(tournament);
-
-                  console.log("Tournament %i added: %s",(index+1),name);
-
-                }
-
-              }); //end $(tableOfResults).each( (index, row) => {});
+              insertTableData(tableOfResults);
 
             } //end if span id == ultimate
 
@@ -106,6 +84,40 @@ function scrapeBrackets() {
   }); //end promise
 } //end scrapeBrackets
 
+
+/*
+*   helper function
+*   input is a table of data
+*   creates tournament object and adds to tournamentData array
+*/
+function insertTableData(table) {
+
+  $(table).each( (index, row) => {
+
+    var namehtml = $(row).children().html();
+    var name = $(namehtml).text();
+    var date  = $(row).children().next().html();
+    var entrants = $(row).children().next().next().html();
+    var winnerhtml = $(row).children().next().next().next().html();
+    var winner = $(winnerhtml).text().trim();
+    var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
+
+    if (winner) {
+      var tournament = {  name: name,
+                          date: date,
+                          entrants: entrants,
+                          winner: winner,
+                          url: url };
+
+      tournamentData.push(tournament);
+
+      console.log("Tournament %i added: %s",(index+1),name);
+
+    }
+
+  }); //end $(tableOfResults).each( (index, row) => {});
+
+} //end insertTableData
 
 /*
 * "main"
