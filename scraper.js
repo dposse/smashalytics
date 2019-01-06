@@ -51,10 +51,17 @@ function scrapeTables() {
               */
 
               //tableOfResults includes 2018 national tournaments
-              var tableOfResults = $(element).parent().next().next()
+              var tableOfResults2018 = $(element).parent().next().next()
                                              .children().children().next();
 
-              insertTableData(tableOfResults);
+              insertTableData(tableOfResults2018);
+
+              //console.log($(element).parent().next().next())
+
+              var tableOfResults2019 = $(element).parent().next().next().next().next()
+                                            .children().children().next();
+
+              insertTableData(tableOfResults2019);
 
             } //end if span id == ultimate
 
@@ -113,7 +120,7 @@ function insertTableData(table) {
 
       console.log("Tournament %i added: %s",(index+1),name);
 
-    }
+    } //end if
 
   }); //end $(tableOfResults).each( (index, row) => {});
 
