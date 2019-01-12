@@ -1,6 +1,9 @@
-//initialize things
+//import libraries
 const request = require('request');
 const cheerio = require('cheerio');
+const fs      = require('fs');
+
+//initialize variables
 const url = "https://www.ssbwiki.com/List_of_national_tournaments";
 var $;
 var tournamentData = [];
@@ -90,6 +93,15 @@ function scrapeBrackets() {
 
 
 /*
+*   write to csv
+*/
+function writeToCsv() {
+
+  console.log("\nwrite to csv here\n")
+
+} //end writeToCsv
+
+/*
 *   helper function
 *   input is a table of data
 *   creates tournament object and adds to tournamentData array
@@ -106,6 +118,7 @@ function insertTableData(table) {
     var winner = $(winnerhtml).text().trim();
     var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
 
+    // apparently "TBD" as winner evaluates to false
     if (winner) {
       var tournament = {  name: name,
                           date: date,
@@ -130,18 +143,27 @@ function insertTableData(table) {
 * third write to csv
 */
 
-scrapeTables().then( () => {
-  console.log("\n");
-  for (var i=0; i<tournamentData.length; i++) {
+scrapeTables()
+  .then( () => {
 
-      console.log(tournamentData[i].name);
-      console.log(tournamentData[i].date);
-      console.log(tournamentData[i].entrants);
-      console.log(tournamentData[i].winner);
-      console.log(tournamentData[i].url);
-      console.log("\n");
+    //logging for... clarity? feel like the program is doing something?
+    console.log("\n");
+    for (var i=0; i<tournamentData.length; i++) {
 
-  }
-}).catch( (err) => {
-  console.err(err);
-});
+        console.log(tournamentData[i].name);
+        console.log(tournamentData[i].date);
+        console.log(tournamentData[i].entrants);
+        console.log(tournamentData[i].winner);
+        console.log(tournamentData[i].url);
+        console.log("\n");
+
+    } //end for
+
+    scrapeBrackets();
+
+  })
+  //when scrapeBrackets finishes, write to csv
+  .then(writeToCsv)
+  .catch( (err) => {
+    console.err(err);
+  });

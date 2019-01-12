@@ -6,9 +6,9 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 
 TODO in order:
 
-   ~create helper function to read table row~ DONE
+   ~create helper function to read table row~
 
-   ~get data from 2019 tournament table~ DONE
+   ~get data from 2019 tournament table~
 
    write to csv
 
