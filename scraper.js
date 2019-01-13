@@ -97,7 +97,26 @@ function scrapeBrackets() {
 */
 function writeToCsv() {
 
-  console.log("\nwrite to csv here\n")
+  var file = fs.createWriteStream('tournamentData.csv');
+
+  file.on('error', (err) => { console.log(err) });
+
+  //write top level tournament data
+  tournamentData.forEach( (row) => {
+
+    file.write(
+      [ row.name,
+        row.date,
+        row.entrants,
+        row.winner,
+        row.url ].join(',') + '\n'
+    );
+
+  });
+
+  //need to write bracket data
+
+  file.end();
 
 } //end writeToCsv
 
@@ -164,6 +183,7 @@ scrapeTables()
   })
   //when scrapeBrackets finishes, write to csv
   .then(writeToCsv)
+
   .catch( (err) => {
-    console.err(err);
+    console.log(err);
   });
