@@ -7,20 +7,14 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 ###### TODO in order:
 
    - [x] ~create helper function to read table row~
-
    - [x] ~get data from 2019 tournament table~
-
    - [x] ~write to csv~
-
-   - [x] break down how to get bracket data
-
-   - [ ] get bracket data
+   - [x] ~break down how to get bracket data~
+   - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
      - [ ] find super smash bros ultimate id (h3 tag?)
      - [ ] find bracket link after id
      - [ ] load bracket link
-     - [ ] figure out how to get bracket data
-
+     - [ ] figure out how to get bracket data (lol)
    - [ ] write bracket data to csv
-
    - [ ] import csv to d3.js
