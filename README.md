@@ -10,6 +10,6 @@ TODO in order:
 
    ~get data from 2019 tournament table~
 
-   write to csv
+   ~write to csv~
 
    break down how to get bracket data

@@ -163,24 +163,8 @@ function insertTableData(table) {
 */
 
 scrapeTables()
-  .then( () => {
 
-    //logging for... clarity? feel like the program is doing something?
-    console.log("\n");
-    for (var i=0; i<tournamentData.length; i++) {
-
-        console.log(tournamentData[i].name);
-        console.log(tournamentData[i].date);
-        console.log(tournamentData[i].entrants);
-        console.log(tournamentData[i].winner);
-        console.log(tournamentData[i].url);
-        console.log("\n");
-
-    } //end for
-
-    scrapeBrackets();
-
-  })
+  .then(scrapeBrackets())
   //when scrapeBrackets finishes, write to csv
   .then(writeToCsv)
 
