@@ -1,15 +1,26 @@
-smashalytics
+# smashalytics
 
 Data gathering and visualization project using tournament results from Super Smash Brothers games.
 
 Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 
-TODO in order:
+###### TODO in order:
 
-   ~create helper function to read table row~
+   - [x] ~create helper function to read table row~
 
-   ~get data from 2019 tournament table~
+   - [x] ~get data from 2019 tournament table~
 
-   ~write to csv~
+   - [x] ~write to csv~
 
-   break down how to get bracket data
+   - [x] break down how to get bracket data
+
+   - [ ] get bracket data
+     - [ ] load pages scraped from tournament table (tournament.url)
+     - [ ] find super smash bros ultimate id (h3 tag?)
+     - [ ] find bracket link after id
+     - [ ] load bracket link
+     - [ ] figure out how to get bracket data
+
+   - [ ] write bracket data to csv
+
+   - [ ] import csv to d3.js
