@@ -15,6 +15,6 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
      - [ ] find super smash bros ultimate id (h3 tag?)
      - [ ] find bracket link after id
      - [ ] load bracket link
-     - [ ] figure out how to get bracket data (lol)
+   - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] import csv to d3.js
