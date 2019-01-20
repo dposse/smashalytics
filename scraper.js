@@ -163,7 +163,7 @@ function insertTableData(table) {
 */
 
 scrapeTables()
-  .then(scrapeBrackets())
+  .then(scrapeBrackets()) // test with and without parens when function is complete
   .then(writeToCsv) // doesn't work with parens?! writeToCsv()
 
   .catch( (err) => {

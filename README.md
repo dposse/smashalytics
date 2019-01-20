@@ -18,3 +18,7 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] import csv to d3.js
+
+   visualization ideas
+    player circle/icon/something, bigger the more wins they have
+    going to a player's stats - show individual win percentages against other players
