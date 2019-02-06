@@ -20,6 +20,7 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] expand data visualization
+   - [ ] use massey method to rank players / make predictions
    - [ ] ML predictions based on match history?
 
    visualization ideas  
