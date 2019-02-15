@@ -9,4 +9,5 @@ d3.select(".chart")
     .enter()
     .append("div")
     .style("width", function(d) { return d + "px"; })
+    .style("background-color","black")
     .text(function(d) { return d; });
