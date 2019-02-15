@@ -1,0 +1,29 @@
+{
+  "name": "smashalytics",
+  "version": "1.0.0",
+  "description": "web scraper and data visualization",
+  "main": "charts.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0",
+    "d3": "^5.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dposse/smashalytics.git"
+  },
+  "keywords": [
+    "smash",
+    "d3"
+  ],
+  "author": "Daniel Posse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dposse/smashalytics/issues"
+  },
+  "homepage": "https://github.com/dposse/smashalytics#readme"
+}

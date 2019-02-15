@@ -1,9 +1,12 @@
 //testing d3
-var vis = d3.select("#graph")
-            .append("svg");
+console.log("file loaded");
 
-vis.attr("width", 900)
-   .attr("height", 400);
+var data = [30, 86, 168, 281, 303, 365];
 
-vis.text("The Graph")
-  .select("#graph");
+d3.select(".chart")
+  .selectAll("div")
+  .data(data)
+    .enter()
+    .append("div")
+    .style("width", function(d) { return d + "px"; })
+    .text(function(d) { return d; });
