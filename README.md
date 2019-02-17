@@ -4,6 +4,8 @@ Data gathering and visualization project using tournament results from Super Sma
 
 Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 
+Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
+
 ###### TODO in order:
 
    - [x] ~create helper function to read table row~
