@@ -101,6 +101,9 @@ function writeToCsv() {
 
   file.on('error', (err) => { console.log(err) });
 
+  //write header
+  file.write("name,date,entrants,winner,url\n");
+
   //write top level tournament data
   tournamentData.forEach( (row) => {
 
