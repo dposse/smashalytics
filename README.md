@@ -12,7 +12,7 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [x] ~get data from 2019 tournament table~
    - [x] ~write to csv~
    - [x] ~break down how to get bracket data~
-   - [ ] import csv to d3.js
+   - [x] ~import csv to d3.js~
    - [ ] basic data visualization
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
