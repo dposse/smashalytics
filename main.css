@@ -16,6 +16,7 @@ header {
   width: 90%;
   height: 80%;
   margin: auto;
+  border: 1px solid white;
 }
 
 #madeBy a {
