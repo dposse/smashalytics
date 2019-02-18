@@ -3,7 +3,9 @@
 * Author: Daniel Posse
 */
 
-
+//chart variables
+//var width = "100%"; // CHANGE TO PERCENT TO BE RESPONSIVE
+//var height = "100";
 
 
 /*
@@ -24,17 +26,21 @@ d3.csv("tournamentData.csv")
       console.log(item.url);
     });*/
 
-    var svg = d3.select("#chart")
+    var svg = d3.select(".chartContainer")
                 .append("svg")
-                .attr("width", 600)
-                .attr("height",600)
+                .attr("width", "100%")  // CHANGE TO PERCENT TO BE RESPONSIVE
+                .attr("height", "100%")// CHANGE TO PERCENT TO BE RESPONSIVE
                 .style("background-color","white");
-    /*svg.selectAll("circle")
-       .data([32,57,112,293])
+
+    console.log(svg.style("width"));
+    //add circles to svg
+    svg.selectAll("circle")
+       .data(data)
        .enter()
        .append("circle")
-       .attr("cy", 60)
-       .attr("cx", function(d,i) { return i * 100 + 30; })
-       .attr("r", function(d) { return Math.sqrt(d); });*/
+       .attr("r", 25)
+       .attr("cx", (d) => { return Math.random() * parseInt(svg.style("width")); })
+       .attr("cy", (d) => { return Math.random() * parseInt(svg.style("height")); });
+
 
   });
