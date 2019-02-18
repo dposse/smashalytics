@@ -22,6 +22,7 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] expand data visualization
+   - [ ] automate tournamentData.csv and bracketData.csv being updated by scraper.js and bracketScraper.js
    - [ ] use massey method to rank players / make predictions
    - [ ] ML predictions based on match history?
 
