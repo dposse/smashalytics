@@ -38,6 +38,8 @@ d3.csv("tournamentData.csv")
        .data(data)
        .enter()
        .append("circle")
+       .attr("fill", "turquoise")
+       .attr("stroke", "black")
        .attr("r", 25)
        .attr("cx", (d) => { return Math.random() * parseInt(svg.style("width")); })
        .attr("cy", (d) => { return Math.random() * parseInt(svg.style("height")); });
