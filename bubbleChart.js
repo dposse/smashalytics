@@ -4,8 +4,8 @@
 */
 
 //chart variables
-//var width = "100%"; // CHANGE TO PERCENT TO BE RESPONSIVE
-//var height = "100";
+var width = 600,
+    height = 600;
 
 
 /*
@@ -28,8 +28,8 @@ d3.csv("tournamentData.csv")
 
     var svg = d3.select(".chartContainer")
                 .append("svg")
-                .attr("width", "100%")  // CHANGE TO PERCENT TO BE RESPONSIVE
-                .attr("height", "100%")// CHANGE TO PERCENT TO BE RESPONSIVE
+                .attr("viewBox", "0 0 "+width+" "+height)
+                .attr("preserveAspectRatio", "xMinYMin")
                 .style("background-color","white");
 
     console.log(svg.style("width"));
