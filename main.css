@@ -12,11 +12,14 @@ header {
   margin: 10px;
 }
 
+svg{
+  border: 1px solid white;
+}
+
 .chartContainer {
   width: 90%;
   height: 80%;
   margin: auto;
-  border: 1px solid white;
 }
 
 #madeBy a {
