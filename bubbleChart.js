@@ -40,7 +40,7 @@ d3.csv("tournamentData.csv")
        .append("circle")
        .attr("fill", "turquoise")
        .attr("stroke", "black")
-       .attr("r", (data) => { return data.entrants / 7; })
+       .attr("r", (data) => { return Math.max(data.entrants / 7, 5); })
        .attr("cx", (d) => { return Math.random() * parseInt(svg.style("width")); })
        .attr("cy", (d) => { return Math.random() * parseInt(svg.style("height")); });
 

@@ -13,13 +13,16 @@ header {
 }
 
 svg{
+  width: 70%;
+  height: 70%;
+  display: block;
+  margin: auto;
   border: 1px solid white;
 }
 
 .chartContainer {
-  width: 90%;
-  height: 80%;
-  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
 #madeBy a {
