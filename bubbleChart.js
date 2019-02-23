@@ -28,8 +28,8 @@ d3.csv("tournamentData.csv")
 
     var svg = d3.select(".chartContainer")
                 .append("svg")
-                .attr("viewBox", "0 0 "+width+" "+height)
-                .attr("preserveAspectRatio", "xMinYMin")
+                .attr("viewBox", "0 0 800 800")
+                .attr("preserveAspectRatio", "xMinYMin meet")
                 .style("background-color","white");
 
     console.log(svg.style("width"));
@@ -41,8 +41,8 @@ d3.csv("tournamentData.csv")
        .attr("fill", "turquoise")
        .attr("stroke", "black")
        .attr("r", (data) => { return Math.max(data.entrants / 7, 5); })
-       .attr("cx", (d) => { return Math.random() * parseInt(svg.style("width")); })
-       .attr("cy", (d) => { return Math.random() * parseInt(svg.style("height")); });
+       .attr("cx", (d) => { return Math.random() * 800; })
+       .attr("cy", (d) => { return Math.random() * 800; });
 
 
   });
