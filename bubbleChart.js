@@ -1,16 +1,41 @@
 /*
-* Creates bubble chart with D3.js
+* Create bubble chart with D3.js
+*   Using reusable charts template from https://bost.ocks.org/mike/chart/
 * Author: Daniel Posse
 */
 
-//chart variables
-var width = 600,
-    height = 600;
+function bubbleChart() {
+
+  // default chart size
+  var width = 700,
+      height = 500;
+
+  return function chart() {
+
+    var svg = d3.select(".chartContainer")
+      .append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+  };
+
+  // getters/setters
+  chart.width = function(value) {
+
+    if (!arguments.length) return width;
+    width = value;
+    return chart;
+
+  };
+
+  return chart;
+
+} //end bubbleChart
 
 
-/*
+/* OLD CODE
 * "main" - read csv and create chart
-*/
+
 d3.csv("tournamentData.csv")
   .then( (data) => {
 
@@ -24,7 +49,7 @@ d3.csv("tournamentData.csv")
       console.log(item.entrants);
       console.log(item.winner);
       console.log(item.url);
-    });*/
+    });
 
     var svg = d3.select(".chartContainer")
                 .append("svg")
@@ -45,4 +70,4 @@ d3.csv("tournamentData.csv")
        .attr("cy", (d) => { return Math.random() * 800; });
 
 
-  });
+  });*/
