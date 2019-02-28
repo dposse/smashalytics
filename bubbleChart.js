@@ -10,17 +10,17 @@ function bubbleChart() {
   var width = 700,
       height = 500;
 
-  return function chart() {
+  return function my() {
 
     var svg = d3.select(".chartContainer")
       .append("svg")
       .attr("width", width)
       .attr("height", height);
 
-  };
+  }
 
   // getters/setters
-  chart.width = function(value) {
+  my.width = function(value) {
 
     if (!arguments.length) return width;
     width = value;
@@ -28,7 +28,7 @@ function bubbleChart() {
 
   };
 
-  return chart;
+  return my;
 
 } //end bubbleChart
 
