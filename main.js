@@ -4,13 +4,15 @@
 * Author: Daniel Posse
 */
 
-var chart = bubbleChart();
+var bubbles = bubbleChart();
 
 
 d3.csv("tournamentData.csv", (data) => {
 
   d3.select("#chart")
     .datum(data)
-    .call(chart);
+    .call(bubbles);
 
 });
+
+console.log(bubbles.width());

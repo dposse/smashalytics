@@ -5,40 +5,36 @@
 */
 
 function bubbleChart() {
+  var width = 800,
+      height = 800;
 
-  // default chart size
-  var width = 700,
-      height = 500;
+  function chart(selection) {
+    selection.each(function (d, i) {
+        var chartElem = d3.select(this);
+        var svg = chartElem.selectAll('svg').data([d]);
 
-  return function my(selection) {
+        var svgEnter = svg.enter().append('svg');
 
-    selection.each(function (d,i) {
+        // Now append the elements which need to be inserted
+        // only once to svgEnter.
+        // e.g. 'g' which contains axis, title, etc.
 
-      var chartElem = d3.select(this);
-      var svg = chartElem.selectAll('svg').data([d]);
-      var svgEnter = svg.enter().append('svg');
-
-      //append elements which need to be inserted only
-      //once here
-
-      svg.attr('width', width)
-        .attr('height', height);
+        // 'Update' the rest of the graph here.
+        // e.g. set the width/height attributes which change:
+        svg
+           .attr('width', width)
+           .attr('height', height);
 
     });
-
   }
 
-  // getters/setters
-  my.width = function(value) {
-
+  chart.width = function(value) {
     if (!arguments.length) return width;
     width = value;
     return chart;
-
   };
 
-  return my;
-
+  return chart;
 } //end bubbleChart
 
 
