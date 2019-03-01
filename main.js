@@ -5,6 +5,12 @@
 */
 
 var chart = bubbleChart();
-chart();
 
-console.log(chart.width());
+
+d3.csv("tournamentData.csv", (data) => {
+
+  d3.select("#chart")
+    .datum(data)
+    .call(chart);
+
+});

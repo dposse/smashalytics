@@ -10,12 +10,21 @@ function bubbleChart() {
   var width = 700,
       height = 500;
 
-  return function my() {
+  return function my(selection) {
 
-    var svg = d3.select(".chartContainer")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    selection.each(function (d,i) {
+
+      var chartElem = d3.select(this);
+      var svg = chartElem.selectAll('svg').data([d]);
+      var svgEnter = svg.enter().append('svg');
+
+      //append elements which need to be inserted only
+      //once here
+
+      svg.attr('width', width)
+        .attr('height', height);
+
+    });
 
   }
 
