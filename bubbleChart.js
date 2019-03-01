@@ -1,14 +1,23 @@
 /*
 * Create bubble chart with D3.js
-*   Using reusable charts template from https://bost.ocks.org/mike/chart/
+*   Using reusable charts template by Rob Moore: https://www.toptal.com/d3-js/towards-reusable-d3-js-charts
+*   Based on reusable charts by Mike Bostock: https://bost.ocks.org/mike/chart/
+*
 * Author: Daniel Posse
 */
 
 function bubbleChart() {
-  var width = 800,
+
+  //options accessible to caller
+  var data = [],
+      width = 800,
       height = 800;
 
+  var updateData,
+      updateWidth;
+
   function chart(selection) {
+    //i think after handling data, can remove "d, i" as parameters
     selection.each(function (d, i) {
         var chartElem = d3.select(this);
         var svg = chartElem.selectAll('svg').data([d]);
@@ -25,13 +34,43 @@ function bubbleChart() {
            .attr('width', width)
            .attr('height', height);
 
+        updateData = function() {
+          // use d3 update pattern with data
+        }
+
+        updateWidth = function() {
+          // use width to make any changes
+        };
+
     });
   }
 
-  chart.width = function(value) {
-    if (!arguments.length) return width;
-    width = value;
+  chart.data = function(value) {
+
+    if (!arguments.length)
+      return data;
+
+    data = value;
+
+    if (typeof updateData === 'function')
+      updateData();
+
     return chart;
+
+  };
+
+  chart.width = function(value) {
+
+    if (!arguments.length)
+      return width;
+
+    width = value;
+
+    if (typeof updateWidth === 'function')
+      updateWidth();
+
+    return chart;
+
   };
 
   return chart;
