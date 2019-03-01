@@ -4,15 +4,31 @@
 * Author: Daniel Posse
 */
 
-var bubbles = bubbleChart();
+let csvData;
 
+d3.csv("tournamentData.csv").then( (data) => {
 
-d3.csv("tournamentData.csv", (data) => {
-
-  d3.select("#chart")
-    .datum(data)
-    .call(bubbles);
+  csvData = data;
+  makeChart();
 
 });
 
-console.log(bubbles.width());
+function makeChart() {
+
+  const entrants = csvData.map( d => d.entrants );
+  console.log(entrants);
+
+  let updatableChart = bubbleChart().data(entrants);
+
+  d3.select('#chart').call(updatableChart);
+
+}
+
+
+
+
+
+       /*var updatableChart = barChart().width(500).data(highTemperatures);
+
+       d3.select('#updatableChart')
+           .call(updatableChart);*/
