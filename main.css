@@ -1,11 +1,10 @@
-html,body {
+html, body {
   font-family: 'Montserrat', sans-serif;
   color: white;
   background-color: turquoise;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   width: 100%;
-  height: 100vh;
 }
 
 header {
