@@ -12,7 +12,9 @@ function bubbleChart() {
     var width = 500;
     var height = 300;
     var barPadding = 1;
-    var fillColor = 'coral';
+    var fillColor = 'turquoise';
+    var strokeColor = 'black';
+    var backgroundColor = 'white';
     var data = [];
 
     var updateWidth;
@@ -33,17 +35,19 @@ function bubbleChart() {
                 .attr('class', 'bar-chart')
                 .attr('height', height)
                 .attr('width', width)
-                .style('fill', fillColor);
+                .style('fill', fillColor)
+                .style('background-color', backgroundColor);
 
-            var bars = svg.selectAll('rect.display-bar')
-                .data(data)
-                .enter()
-                .append('rect')
-                .attr('class', 'display-bar')
-                .attr('y', function (d, i) { return i * barSpacing;  })
-                .attr('height', barHeight)
-                .attr('x', 0)
-                .attr('width', function (d) { return d * widthScale; });
+
+            var nodes = svg.selectAll('circle')
+              .data(data)
+              .enter()
+              .append('circle')
+              .attr('fill', fillColor)
+              .attr('stroke', strokeColor)
+              .attr('cx', (d) => { return Math.random() * width; })
+              .attr('cy', (d) => { return Math.random() * height; })
+              .attr('r', function (d) { return d / 7; });
 
 
             // update functions
