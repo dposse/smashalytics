@@ -25,33 +25,29 @@ function bubbleChart() {
     function chart(selection){
         selection.each(function () {
 
-            var barSpacing = height / data.length;
-            var barHeight = barSpacing - barPadding;
-            var maxValue = d3.max(data);
-            var widthScale = width / maxValue;
-
-            var dom = d3.select(this);
-            var svg = dom.append('svg')
-                .attr('class', 'bar-chart')
-                .attr('height', height)
-                .attr('width', width)
-                .style('fill', fillColor)
-                .style('background-color', backgroundColor);
+          //make chart
+          var dom = d3.select(this);
+          var svg = dom.append('svg')
+              .attr('class', 'bar-chart')
+              .attr('height', height)
+              .attr('width', width)
+              .style('fill', fillColor)
+              .style('background-color', backgroundColor);
 
 
-            var nodes = svg.selectAll('circle')
-              .data(data)
-              .enter()
-              .append('circle')
-              .attr('fill', fillColor)
-              .attr('stroke', strokeColor)
-              .attr('cx', (d) => { return Math.random() * width; })
-              .attr('cy', (d) => { return Math.random() * height; })
-              .attr('r', function (d) { return d / 7; });
+          var nodes = svg.selectAll('circle')
+            .data(data)
+            .enter()
+            .append('circle')
+            .attr('fill', fillColor)
+            .attr('stroke', strokeColor)
+            .attr('cx', (d) => { return Math.random() * width; })
+            .attr('cy', (d) => { return Math.random() * height; })
+            .attr('r', function (d) { return Math.max(d / 15,5); });
 
-
-            // update functions
-            updateWidth = function() {
+            //KEEPING FOR FUTURE REFERENCE
+            // update functions from rob moore
+            /*updateWidth = function() {
                 widthScale = width / maxValue;
                 bars.transition().duration(1000).attr('width', function(d) { return d * widthScale; });
                 svg.transition().duration(1000).attr('width', width);
@@ -110,7 +106,7 @@ function bubbleChart() {
                     .attr('x', 0)
                     .attr('width', 0)
                     .remove();
-            }
+            }*/
 
         });
     }
@@ -145,105 +141,3 @@ function bubbleChart() {
 
     return chart;
 }
-
-/*function bubbleChart() {
-
-  //options accessible to caller
-  var data = [],
-      width = 800,
-      height = 800,
-      backgroundColor = "white";
-
-  var updateData,
-      updateWidth;
-
-  function chart(selection) {
-
-    var svg = d3.select(this)
-      .append('svg')
-      .attr('width', width)
-      .attr('height', height)
-      .style('background-color', backgroundColor);
-
-    selection.each(function () {
-
-        svg.selectAll("circle")
-          .data(data)
-          .enter()
-          .append("circle")
-          .attr("fill", "turquoise")
-          .attr("stroke", "black")
-          .attr("r", (d) => { return Math.max(d / 7, 5); })
-          .attr("cx", (d) => { return Math.random() * 800; })
-          .attr("cy", (d) => { return Math.random() * 800; });
-
-          console.log(data);
-        updateData = function() {
-          // use d3 update pattern with data
-        }
-
-        updateWidth = function() {
-          // use width to make any changes
-        };
-
-    });
-  }
-
-  chart.data = function(value) {
-
-    if (!arguments.length)
-      return data;
-
-    data = value;
-
-    if (typeof updateData === 'function')
-      updateData();
-
-    return chart;
-
-  };
-
-  chart.width = function(value) {
-
-    if (!arguments.length)
-      return width;
-
-    width = value;
-
-    if (typeof updateWidth === 'function')
-      updateWidth();
-
-    return chart;
-
-  };
-
-  return chart;
-} //end bubbleChart*/
-
-
-/* OLD CODE
-* "main" - read csv and create chart
-
-d3.csv("tournamentData.csv")
-  .then( (data) => {
-
-    var svg = d3.select(".chartContainer")
-                .append("svg")
-                .attr("viewBox", "0 0 800 800")
-                .attr("preserveAspectRatio", "xMinYMin meet")
-                .style("background-color","white");
-
-    console.log(svg.style("width"));
-    //add circles to svg
-    svg.selectAll("circle")
-       .data(data)
-       .enter()
-       .append("circle")
-       .attr("fill", "turquoise")
-       .attr("stroke", "black")
-       .attr("r", (data) => { return Math.max(data.entrants / 7, 5); })
-       .attr("cx", (d) => { return Math.random() * 800; })
-       .attr("cy", (d) => { return Math.random() * 800; });
-
-
-  });*/
