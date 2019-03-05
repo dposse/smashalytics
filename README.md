@@ -16,6 +16,8 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [x] ~break down how to get bracket data~
    - [x] ~import csv to d3.js~
    - [ ] basic data visualization
+     - [ ] d3 force layout
+     - [ ] add margin convention
    - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)

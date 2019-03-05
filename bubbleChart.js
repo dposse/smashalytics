@@ -11,7 +11,6 @@ function bubbleChart() {
     // All options that should be accessible to caller
     var width = 500;
     var height = 300;
-    var barPadding = 1;
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
