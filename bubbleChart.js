@@ -40,10 +40,23 @@ function bubbleChart() {
             .append('circle')
             .attr('fill', fillColor)
             .attr('stroke', strokeColor)
+            //force layout should give random starting (x,y), so can probably delete
             .attr('cx', (d) => { return Math.random() * width; })
             .attr('cy', (d) => { return Math.random() * height; })
             .attr('r', function (d) { return Math.max(d / 15,5); });
 
+          var force = d3.layout.force()
+            .size([width,height])
+            .nodes(nodes);
+
+          force.on('end', function() {
+
+            node.attr('cx', (d) => { return d.x; })
+              .attr('cy', (d) => { return d.y; });
+
+          });
+
+          force.start();
             //KEEPING FOR FUTURE REFERENCE
             // update functions from rob moore
             /*updateWidth = function() {
