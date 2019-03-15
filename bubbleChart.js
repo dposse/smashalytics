@@ -25,6 +25,8 @@ function bubbleChart() {
         selection.each(function () {
 
           //make chart
+
+          //create svg in selection
           var dom = d3.select(this);
           var svg = dom.append('svg')
               .attr('class', 'bar-chart')
@@ -34,6 +36,8 @@ function bubbleChart() {
               .style('background-color', backgroundColor);
 
 
+
+          //create nodes from data
           var nodes = svg.selectAll('circle')
             .data(data)
             .enter()
@@ -41,22 +45,19 @@ function bubbleChart() {
             .attr('fill', fillColor)
             .attr('stroke', strokeColor)
             //force layout should give random starting (x,y), so can probably delete
-            .attr('cx', (d) => { return Math.random() * width; })
-            .attr('cy', (d) => { return Math.random() * height; })
+            //.attr('cx', (d) => { return Math.random() * width; })
+            //.attr('cy', (d) => { return Math.random() * height; })
             .attr('r', function (d) { return Math.max(d / 15,5); });
 
-          var force = d3.layout.force()
-            .size([width,height])
-            .nodes(nodes);
+          //create force layout
+          var force = d3.forceSimulation(nodes)
+            .force('center', d3.forceCenter(width/2,height/2))
+            .force('charge', d3.forceManyBody().strength(-20))
+            .on('tick', () => {
+              nodes.attr('cx', node => node.x)
+                   .attr('cy', node => node.y);
+            })
 
-          force.on('end', function() {
-
-            node.attr('cx', (d) => { return d.x; })
-              .attr('cy', (d) => { return d.y; });
-
-          });
-
-          force.start();
             //KEEPING FOR FUTURE REFERENCE
             // update functions from rob moore
             /*updateWidth = function() {
