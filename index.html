@@ -16,10 +16,49 @@
       <h5 id="madeBy">made by <a href="https://www.github.com/dposse" target="_blank">dposse</a></h5>
     </header>
 
-    <div id="chart" class="chartContainer"><!-- D3 goes here --></div>
+    <div id="chart" class="chartContainer"><svg width="500" height="300"></svg><!-- D3 goes here --></div>
 
     <script src="d3/d3.min.js"></script>
-    <script type="text/javascript" src="bubbleChart.js"></script>
-    <script type="text/javascript" src="main.js"></script>
+    <script>
+
+      var svg = d3.select('svg').style('background-color','white');
+      var width = +svg.attr('width');
+      var height = +svg.attr('height');
+
+      const data = [
+        { 'name': 'Travis', 'sex': 'M' },
+        { 'name': 'Rake', 'sex': 'M' },
+        { 'name': 'Diana', 'sex': 'F' },
+        { 'name': 'Rachel', 'sex': 'F' },
+        { 'name': 'Shawn', 'sex': 'M' },
+        { 'name': 'Emerald', 'sex': 'F' },
+      ];
+
+      var simulation = d3.forceSimulation().nodes(data);
+
+      simulation
+        .force('charge', d3.forceManyBody())
+        .force('center', d3.forceCenter(width/2,height/2));
+
+      var nodes = svg.append('g')
+        .attr('class','nodes')
+        .selectAll('circle')
+        .data(data)
+        .enter()
+        .append('circle')
+        .attr('r', 5)
+        .attr('fill', 'turquoise');
+
+      function tick() {
+        nodes
+          .attr('cx', function(d) { return d.x; })
+          .attr('cy', function(d) { return d.y; });
+      }
+
+      simulation.on('tick',tick);
+
+    </script>
+    <!--<script type="text/javascript" src="bubbleChart.js"></script>
+    <script type="text/javascript" src="main.js"></script>-->
 
 </body>
