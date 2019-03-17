@@ -54,12 +54,14 @@ function scrapeTables() {
               */
 
               //get data from 2018 national tournaments
+              console.log("2018 tournaments:");
               insertTableData($(element).parent().next().next()
                                              .children().children().next());
 
               //get data from 2019 national tournaments
               //from 2018 table, one .next() gets h3 with 2019
               //  second .next() gets table of tournaments
+              console.log("2019 tournaments:");
               insertTableData($(element).parent().next().next().next().next()
                                             .children().children().next());
 

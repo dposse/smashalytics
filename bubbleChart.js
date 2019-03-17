@@ -29,7 +29,6 @@ function bubbleChart() {
           //create svg in selection
           var dom = d3.select(this);
           var svg = dom.append('svg')
-              .attr('class', 'bar-chart')
               .attr('height', height)
               .attr('width', width)
               .style('fill', fillColor)
