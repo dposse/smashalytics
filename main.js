@@ -20,12 +20,3 @@ function makeChart() {
   d3.select('#chart').call(updatableChart);
 
 }
-
-
-
-
-
-       /*var updatableChart = barChart().width(500).data(highTemperatures);
-
-       d3.select('#updatableChart')
-           .call(updatableChart);*/

@@ -9,8 +9,9 @@
 function bubbleChart() {
 
     // All options that should be accessible to caller
-    var width = 500;
-    var height = 300;
+    //default width and height for 1080p monitor fullscreen
+    var width = 1200;
+    var height = 800;
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
@@ -25,7 +26,6 @@ function bubbleChart() {
         selection.each(function () {
 
           //make chart
-
           //create svg in selection
           var dom = d3.select(this);
           var svg = dom.append('svg')
@@ -45,18 +45,23 @@ function bubbleChart() {
             .data(data)
             .enter()
             .append('circle')
-            .attr('r', 5)
-            .attr('fill', 'turquoise');
+            .attr('fill', 'turquoise')
+            .attr('stroke', 'black')
+            .attr('r', (d) => { return Math.max((d.entrants/7), 5); });
 
           function tick() {
-
             nodes
               .attr('cx', function(d) { return d.x; })
               .attr('cy', function(d) { return d.y; });
-
           }
 
           simulation.on('tick', tick);
+
+          //test data
+          console.log(data);
+          data.forEach( (item) => {
+            console.log(item.name,item.date,item.entrants,item.winner);
+          });
 
             //KEEPING FOR FUTURE REFERENCE
             // update functions from rob moore
