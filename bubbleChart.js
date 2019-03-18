@@ -34,28 +34,29 @@ function bubbleChart() {
               .style('fill', fillColor)
               .style('background-color', backgroundColor);
 
+          var simulation = d3.forceSimulation().nodes(data);
 
+          simulation
+            .force('charge', d3.forceManyBody())
+            .force('center', d3.forceCenter(width/2, height/2));
 
-          //create nodes from data
-          var nodes = svg.selectAll('circle')
+          var nodes = svg.append('g')
+            .selectAll('circle')
             .data(data)
             .enter()
             .append('circle')
-            .attr('fill', fillColor)
-            .attr('stroke', strokeColor)
-            //force layout should give random starting (x,y), so can probably delete
-            //.attr('cx', (d) => { return Math.random() * width; })
-            //.attr('cy', (d) => { return Math.random() * height; })
-            .attr('r', function (d) { return Math.max(d / 15,5); });
+            .attr('r', 5)
+            .attr('fill', 'turquoise');
 
-          //create force layout
-          var force = d3.forceSimulation(nodes)
-            .force('center', d3.forceCenter(width/2,height/2))
-            .force('charge', d3.forceManyBody().strength(-20))
-            .on('tick', () => {
-              nodes.attr('cx', node => node.x)
-                   .attr('cy', node => node.y);
-            })
+          function tick() {
+
+            nodes
+              .attr('cx', function(d) { return d.x; })
+              .attr('cy', function(d) { return d.y; });
+
+          }
+
+          simulation.on('tick', tick);
 
             //KEEPING FOR FUTURE REFERENCE
             // update functions from rob moore
