@@ -17,11 +17,6 @@ function bubbleChart() {
     var backgroundColor = 'white';
     var data = [];
 
-    var updateWidth;
-    var updateHeight;
-    var updateFillColor;
-    var updateData;
-
     function chart(selection){
         selection.each(function () {
 
@@ -62,69 +57,6 @@ function bubbleChart() {
           data.forEach( (item) => {
             console.log(item.name,item.date,item.entrants,item.winner);
           });
-
-            //KEEPING FOR FUTURE REFERENCE
-            // update functions from rob moore
-            /*updateWidth = function() {
-                widthScale = width / maxValue;
-                bars.transition().duration(1000).attr('width', function(d) { return d * widthScale; });
-                svg.transition().duration(1000).attr('width', width);
-            };
-
-            updateHeight = function() {
-                barSpacing = height / data.length;
-                barHeight = barSpacing - barPadding;
-                bars.transition().duration(1000).attr('y', function(d, i) { return i * barSpacing; })
-                    .attr('height', barHeight);
-                svg.transition().duration(1000).attr('height', height);
-
-            };
-
-            updateFillColor = function() {
-                svg.transition().duration(1000).style('fill', fillColor);
-            };
-
-            updateData = function() {
-                barSpacing = height / data.length;
-                barHeight = barSpacing - barPadding;
-                maxValue = d3.max(data);
-                widthScale = width / maxValue;
-
-                var update = svg.selectAll('rect.display-bar')
-                    .data(data);
-
-                update
-                    .transition()
-                    .duration(1000)
-                    .attr('y', function(d, i) { return i * barSpacing; })
-                    .attr('height', barHeight)
-                    .attr('x', 0)
-                    .attr('width', function(d) { return d * widthScale; });
-
-                update.enter()
-                    .append('rect')
-                    .attr('class', 'display-bar')
-                    .attr('y', function(d, i) { return i * barSpacing; })
-                    .attr('height', barHeight)
-                    .attr('x', 0)
-                    .attr('width', 0)
-                    .style('opacity', 0)
-                    .transition()
-                    .duration(1000)
-                    .delay(function(d, i) { return (data.length - i) * 40; })
-                    .attr('width', function(d) { return d * widthScale; })
-                    .style('opacity', 1);
-
-                update.exit()
-                    .transition()
-                    .duration(650)
-                    .delay(function(d, i) { return (data.length - i) * 20; })
-                    .style('opacity', 0)
-                    .attr('height', 0)
-                    .attr('x', 0)
-                    .attr('width', 0)
-                    .remove();
-            }*/
 
         });
     }
