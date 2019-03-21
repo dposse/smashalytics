@@ -10,8 +10,8 @@ function bubbleChart() {
 
     // All options that should be accessible to caller
     //default width and height for 1080p monitor fullscreen
-    var width = 1200;
-    var height = 800;
+    var width = 1000;
+    var height = 600;
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
@@ -32,8 +32,10 @@ function bubbleChart() {
           var simulation = d3.forceSimulation().nodes(data);
 
           simulation
-            .force('charge', d3.forceManyBody())
-            .force('center', d3.forceCenter(width/2, height/2));
+            .force('charge', d3.forceManyBody().strength(-100))
+            .force('center', d3.forceCenter(width/2, height/2))
+            .force('xAxis', d3.forceX(width/2).strength(0.4))
+            .force('yAxis', d3.forceY(height/2).strength(0.6));
 
           var nodes = svg.append('g')
             .selectAll('circle')
