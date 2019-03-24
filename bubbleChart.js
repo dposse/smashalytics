@@ -33,9 +33,9 @@ function bubbleChart() {
 
           simulation
             .force('charge', d3.forceManyBody().strength(-100))
-            .force('center', d3.forceCenter(width/2, height/2))
-            .force('xAxis', d3.forceX(width/2).strength(0.4))
-            .force('yAxis', d3.forceY(height/2).strength(0.6));
+            .force('center', d3.forceCenter(width/2, height/2));
+            //.force('xAxis', d3.forceX(width/2).strength(0.4))
+            //.force('yAxis', d3.forceY(height/2).strength(0.6));
 
           var nodes = svg.append('g')
             .selectAll('circle')
