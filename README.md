@@ -17,7 +17,7 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [x] ~import csv to d3.js~
    - [ ] basic data visualization
      - [X] basic d3 force layout
-     - [ ] modify force layout
+     - [X] modify force layout
      - [ ] add margin convention
      - [ ] add tooltips
      - [ ] keep nodes within borders - example does this in tick function

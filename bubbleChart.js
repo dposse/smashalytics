@@ -8,10 +8,13 @@
 
 function bubbleChart() {
 
+    //implement margin convention from https://bl.ocks.org/mbostock/3019563
+    const margin = { top: 20, right: 10, bottom: 20, left: 10 };
+
     // All options that should be accessible to caller
     //default width and height for 1080p monitor fullscreen
-    var width = 1000;
-    var height = 600;
+    var width = 1000 - margin.left - margin.right;
+    var height = 600 - margin.top - margin.bottom;
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
@@ -24,15 +27,16 @@ function bubbleChart() {
           //create svg in selection
           var dom = d3.select(this);
           var svg = dom.append('svg')
-              .attr('height', height)
-              .attr('width', width)
+              .attr('height', height + margin.top + margin.bottom)
+              .attr('width', width + margin.left + margin.right)
+              .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
               .style('fill', fillColor)
               .style('background-color', backgroundColor);
 
           var simulation = d3.forceSimulation().nodes(data);
 
           simulation
-            .force('charge', d3.forceManyBody().strength(-100))
+            .force('charge', d3.forceManyBody().strength(-60))
             .force('center', d3.forceCenter(width/2, height/2));
             //.force('xAxis', d3.forceX(width/2).strength(0.4))
             //.force('yAxis', d3.forceY(height/2).strength(0.6));
