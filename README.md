@@ -18,8 +18,9 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [ ] basic data visualization
      - [X] basic d3 force layout
      - [X] modify force layout
-     - [ ] add margin convention
+     - [X] add margin convention
      - [ ] add tooltips
+     - [ ] center chart on page
      - [ ] keep nodes within borders - example does this in tick function
    - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
    - [ ] get to bracket data pages
