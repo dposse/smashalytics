@@ -19,7 +19,9 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
      - [X] basic d3 force layout
      - [X] modify force layout
      - [X] add margin convention
-     - [ ] add tooltips
+     - [X] add tooltips
+       - [X] tooltip animation on mouseover/mouseout
+       - [ ] style tooltip
      - [ ] center chart on page
      - [ ] keep nodes within borders - example does this in tick function
    - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
@@ -31,6 +33,7 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] expand data visualization
+     - [ ] fix tooltip - while chart is loading/expanding there is no mouseover/mouseout transition animation
    - [ ] automate tournamentData.csv and bracketData.csv being updated by scraper.js and bracketScraper.js
    - [ ] use massey method to rank players / make predictions
    - [ ] ML predictions based on match history?
