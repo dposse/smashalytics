@@ -41,6 +41,11 @@ function bubbleChart() {
             //.force('xAxis', d3.forceX(width/2).strength(0.4))
             //.force('yAxis', d3.forceY(height/2).strength(0.6));
 
+          var tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .attr('opacity', 0);
+
           var nodes = svg.append('g')
             .selectAll('circle')
             .data(data)
@@ -48,7 +53,20 @@ function bubbleChart() {
             .append('circle')
             .attr('fill', 'turquoise')
             .attr('stroke', 'black')
-            .attr('r', (d) => { return Math.max((d.entrants/7), 5); });
+            .attr('r', (d) => { return Math.max((d.entrants/7), 5); })
+            .on('mousemove', function() {
+              tooltip
+                .style('opacity', 1)
+                .style('left', d3.event.pageX + 'px')
+                .style('top', d3.event.pageY + 'px')
+                .style('display', 'inline-block')
+                .html('<span>sup</span>');
+            })
+            .on('mouseout', function() {
+              return tooltip.style('opacity', 0);
+            });
+
+
 
           function tick() {
             nodes
