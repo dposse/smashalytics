@@ -18,7 +18,7 @@ function bubbleChart() {
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
-    var tooltipOpacity = 0.9;
+    var tooltipOpacity = 0.9; // 0 to 1
     var transitionSpeed = 200; //in milliseconds
     var data = [];
 
@@ -62,12 +62,13 @@ function bubbleChart() {
                 .duration(transitionSpeed)
                 .style('opacity', tooltipOpacity);
             })
-            .on('mousemove', function() {
+            .on('mousemove', function(d) {
               tooltip
                 .style('left', d3.event.pageX + 'px')
                 .style('top', d3.event.pageY + 'px')
                 .style('display', 'inline-block')
-                .html('<span>sup</span>');
+                .html('<span>' + d.name + '</span><br>' +
+                      '<span>' + d.entrants + ' entrants</span>');
             })
             .on('mouseout', function() {
               tooltip
