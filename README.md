@@ -16,11 +16,11 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
    - [x] ~break down how to get bracket data~
    - [x] ~import csv to d3.js~
    - [ ] basic data visualization
-     - [X] basic d3 force layout
-     - [X] modify force layout
-     - [X] add margin convention
-     - [X] add tooltips
-       - [X] tooltip animation on mouseover/mouseout
+     - [X] ~basic d3 force layout~
+     - [X] ~modify force layout~
+     - [X] ~add margin convention~
+     - [X] ~add tooltips~
+       - [X] ~tooltip animation on mouseover/mouseout~
        - [ ] style tooltip
      - [ ] center chart on page
      - [ ] keep nodes within borders - example does this in tick function
