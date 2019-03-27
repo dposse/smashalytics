@@ -21,7 +21,7 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
      - [X] ~add margin convention~
      - [X] ~add tooltips~
        - [X] ~tooltip animation on mouseover/mouseout~
-       - [ ] style tooltip
+       - [X] style tooltip
      - [ ] center chart on page
      - [ ] keep nodes within borders - example does this in tick function
    - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
