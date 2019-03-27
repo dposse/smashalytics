@@ -18,7 +18,7 @@ function bubbleChart() {
     var fillColor = 'turquoise';
     var strokeColor = 'black';
     var backgroundColor = 'white';
-    var tooltipOpacity = 0.9; // 0 to 1
+    var tooltipOpacity = 0.95; // 0 to 1
     var transitionSpeed = 200; //in milliseconds
     var data = [];
 
@@ -66,9 +66,13 @@ function bubbleChart() {
               tooltip
                 .style('left', d3.event.pageX + 'px')
                 .style('top', d3.event.pageY + 'px')
-                .style('display', 'inline-block')
-                .html('<span>' + d.name + '</span><br>' +
-                      '<span>' + d.entrants + ' entrants</span>');
+                .style('display', 'block')
+                .html(
+                      '<span id="tournamentName">' + d.name + '</span><br>' +
+                      //'<span id="tournamentDate">' + d.date + '</span><br>' +
+                      '<span id="tournamentWinner">Winner: ' + d.winner + '</span><br>' +
+                      '<span id="numberOfEntrants">' + d.entrants + ' entrants</span>'
+                      );
             })
             .on('mouseout', function() {
               tooltip
