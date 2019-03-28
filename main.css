@@ -12,15 +12,11 @@ header {
 }
 
 svg{
-  /*width: 100%;
-  height: 100%;*/
   border: 1px solid black;
 }
 
 .chartContainer {
-  /*display: flex;
-  align-items: center;
-  justify-content: center;*/
+  text-align: center;
 }
 
 .tooltip {

@@ -38,8 +38,9 @@ function bubbleChart() {
           var simulation = d3.forceSimulation().nodes(data);
 
           simulation
-            .force('charge', d3.forceManyBody().strength(-60))
-            .force('center', d3.forceCenter(width/2, height/2));
+            .force('charge', d3.forceManyBody().strength(10))
+            .force('center', d3.forceCenter(width/2, height/2))
+            .force('collision', d3.forceCollide().radius((d) => { return Math.max((d.entrants/7), 5) - (.1*Math.max((d.entrants/7), 5)); }));
             //.force('xAxis', d3.forceX(width/2).strength(0.4))
             //.force('yAxis', d3.forceY(height/2).strength(0.6));
 
