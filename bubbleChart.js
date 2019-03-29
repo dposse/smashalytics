@@ -37,6 +37,10 @@ function bubbleChart() {
 
           var simulation = d3.forceSimulation().nodes(data);
 
+          /*
+          * FORCES
+          *   change forces here
+          */
           simulation
             .force('charge', d3.forceManyBody().strength(10))
             .force('center', d3.forceCenter(width/2, height/2))
@@ -57,6 +61,10 @@ function bubbleChart() {
             .attr('fill', 'turquoise')
             .attr('stroke', 'black')
             .attr('r', (d) => { return Math.max((d.entrants/7), 5); })
+            .call(d3.drag()
+                    .on('start', dragstart)
+                    .on('drag', dragging)
+                    .on('end', dragend))
             .on('mouseover', function() {
               tooltip
                 .transition()
@@ -83,12 +91,38 @@ function bubbleChart() {
             });
 
 
-
           function tick() {
             nodes
-              .attr('cx', function(d) { return d.x; })
-              .attr('cy', function(d) { return d.y; });
-          }
+              .attr('cx', (d) => { return d.x; })
+              .attr('cy', (d) => { return d.y; });
+          } //end tick
+
+          function dragstart(d) {
+
+            if (!d3.event.active)
+              simulation.alphaTarget(1).restart();
+
+            d.fx = d.x;
+            d.fy = d.y;
+
+          } //end dragstart
+
+          function dragging(d) {
+
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+
+          } //end dragging
+
+          function dragend(d) {
+
+            if (!d3.event.active)
+              simulation.alphaTarget(1);
+
+            d.fx = null;
+            d.fy = null;
+
+          } //end dragend
 
           simulation.on('tick', tick);
 

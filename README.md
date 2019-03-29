@@ -21,9 +21,10 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
      - [X] ~add margin convention~
      - [X] ~add tooltips~
        - [X] ~tooltip animation on mouseover/mouseout~
-       - [X] style tooltip
-     - [X] center chart on page
-     - [ ] keep nodes within borders - example does this in tick function
+       - [X] ~style tooltip~
+     - [X] ~center chart on page~
+     - [X] ~keep nodes within borders~ - not worrying about this, simulation keeps nodes inside window
+     - [X] ~make nodes draggable~
    - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
