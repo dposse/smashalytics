@@ -138,9 +138,13 @@ function insertTableData(table) {
     var name = $(namehtml).text();
     var date  = $(row).children().next().html();
     var entrants = $(row).children().next().next().html();
+    //remove comma from entrants
+    entrants = entrants.replace(/,/g,'');
     var winnerhtml = $(row).children().next().next().next().html();
     var winner = $(winnerhtml).text().trim();
     var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
+
+    console.log('\nentrants: ' + entrants + ' winnerhtml: ' + winnerhtml);
 
     // apparently "TBD" as winner evaluates to false
     if (winner) {
@@ -168,7 +172,7 @@ function insertTableData(table) {
 */
 
 scrapeTables()
-  .then(scrapeBrackets()) // test with and without parens when function is complete
+  .then(scrapeBrackets) // test with and without parens when function is complete
   .then(writeToCsv) // doesn't work with parens?! writeToCsv()
 
   .catch( (err) => {
