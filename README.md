@@ -25,7 +25,9 @@ Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
      - [X] ~center chart on page~
      - [X] ~keep nodes within borders~ - not worrying about this, simulation keeps nodes inside window
      - [X] ~make nodes draggable~
-   - [ ] fix scraper.js - incorrectly reads entrants >1000 because of comma
+   - [X] fix scraper.js - incorrectly reads entrants >1000 because of comma
+   - [ ] clean scraper console output
+   - [ ] change d3 force layout to accommodate the larger nodes
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
      - [ ] find super smash bros ultimate id (h3 tag?)
