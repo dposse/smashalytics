@@ -172,7 +172,10 @@ function insertTableData(table) {
 */
 
 scrapeTables()
-  .then(scrapeBrackets) // test with and without parens when function is complete
+  //.then(scrapeBrackets) // test with and without parens when function is complete
+                          //currently commented since not implemented
+                          //.then(scrapeBrackets()) actually "works" - goes to writecsv
+                          //.then(scrapeBrackets) does not? tournamentData.csv is never written
   .then(writeToCsv) // doesn't work with parens?! writeToCsv()
 
   .catch( (err) => {
