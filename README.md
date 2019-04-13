@@ -6,7 +6,7 @@ Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
 
 bubbleChart and future d3 charts created to be reusable, handle data and chart configuration in main.js
 
-Run http-server locally for D3.js, i.e. `http-server -c-1 -p 8010`
+Run http-server locally for D3.js, i.e. VSCode live server extension
 
 ###### TODO in order:
 
