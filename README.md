@@ -28,6 +28,7 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [X] fix scraper.js - incorrectly reads entrants >1000 because of comma
    - [ ] clean scraper console output
    - [ ] change d3 force layout to accommodate the larger nodes
+   - [ ] release alpha version - heroku?
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
      - [ ] find super smash bros ultimate id (h3 tag?)

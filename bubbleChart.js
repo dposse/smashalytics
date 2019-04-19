@@ -42,9 +42,9 @@ function bubbleChart() {
           *   change forces here
           */
           simulation
-            .force('charge', d3.forceManyBody().strength(10))
+            .force('charge', d3.forceManyBody().strength(30))
             .force('center', d3.forceCenter(width/2, height/2))
-            .force('collision', d3.forceCollide().radius((d) => { return Math.max((d.entrants/7), 5) - (.1*Math.max((d.entrants/7), 5)); }));
+            .force('collision', d3.forceCollide().radius((d) => { return Math.max((d.entrants/20), 5) - (.1*Math.max((d.entrants/20), 5)); }));
             //.force('xAxis', d3.forceX(width/2).strength(0.4))
             //.force('yAxis', d3.forceY(height/2).strength(0.6));
 
@@ -60,7 +60,7 @@ function bubbleChart() {
             .append('circle')
             .attr('fill', 'turquoise')
             .attr('stroke', 'black')
-            .attr('r', (d) => { return Math.max((d.entrants/7), 5); })
+            .attr('r', (d) => { return Math.max((d.entrants/20), 5); })
             .call(d3.drag()
                     .on('start', dragstart)
                     .on('drag', dragging)
