@@ -144,7 +144,8 @@ function insertTableData(table) {
     var winner = $(winnerhtml).text().trim();
     var url = "https://www.ssbwiki.com" + $(namehtml).attr('href');
 
-    console.log('\nentrants: ' + entrants + ' winnerhtml: ' + winnerhtml);
+    /* log to test removing commas
+    console.log('\nentrants: ' + entrants + ' winnerhtml: ' + winnerhtml);*/
 
     // apparently "TBD" as winner evaluates to false
     if (winner) {

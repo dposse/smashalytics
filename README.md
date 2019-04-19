@@ -26,8 +26,8 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
      - [X] ~keep nodes within borders~ - not worrying about this, simulation keeps nodes inside window
      - [X] ~make nodes draggable~
    - [X] fix scraper.js - incorrectly reads entrants >1000 because of comma
-   - [ ] clean scraper console output
-   - [ ] change d3 force layout to accommodate the larger nodes
+   - [X] clean scraper console output
+   - [X] change d3 force layout to accommodate the larger nodes
    - [ ] release alpha version - heroku?
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
