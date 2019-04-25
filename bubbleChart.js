@@ -56,12 +56,29 @@ function bubbleChart() {
             .attr('class', 'tooltip')
             .attr('opacity', 0);
 
+
+          // color scale for nodes
+          var color = d3.scaleOrdinal(d3.schemeAccent).domain(d3.range(0,data.length)); // this works with any of the included d3 color schemes
+          // filter winners to separate array to map colors
+          const winners = data.map( (item) => { return item.winner; });
+          console.log(winners);
+          // remove duplicates
+          const uniqueWinners = winners.reduce( (a,b) => {
+
+            if (a.indexOf(b) < 0)
+              a.push(b);
+            
+            return a;
+
+          },[]);
+          console.log(uniqueWinners);
+
           var nodes = svg.append('g')
             .selectAll('circle')
             .data(data)
             .enter()
             .append('circle')
-            .attr('fill', fillColor)
+            .attr('fill', d => { return color(d.winner); })
             .attr('stroke', strokeColor)
             .attr('r', (d) => { return Math.max((d.entrants/20), minRadius); })
             .call(d3.drag()
