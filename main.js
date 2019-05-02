@@ -3,6 +3,7 @@
 *   Reads tournamentData.csv and calls bubbleChart.js
 * Author: Daniel Posse
 */
+'use strict'
 
 let csvData;
 
