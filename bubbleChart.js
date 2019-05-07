@@ -73,6 +73,8 @@ function bubbleChart() {
           },[]);
           console.log(uniqueWinners);
 
+
+          
           var nodes = svg.append('g')
             .selectAll('circle')
             .data(data)

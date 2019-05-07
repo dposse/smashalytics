@@ -30,6 +30,7 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [X] ~change d3 force layout to accommodate the larger nodes~
    - [X] ~release alpha version - heroku?~ github pages works
    - [X] ~set node color based on winner~
+     - [ ] map each winner to unique color - currently there are overlaps
    - [ ] get to bracket data pages
      - [ ] load pages scraped from tournament table (tournament.url)
      - [ ] find super smash bros ultimate id (h3 tag?)
