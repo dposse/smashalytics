@@ -46,7 +46,7 @@ function bubbleChart() {
           */
           simulation
             .force('charge', d3.forceManyBody().strength(manyBodyStrength))
-            .force('center', d3.forceCenter(width/2, height/2))
+            .force('center', d3.forceCenter(width/2, height/2 + 50))
             .force('collision', d3.forceCollide().radius( (d) => { return Math.max((d.entrants/20), minRadius) + collisionOffset; }));
             //.force('xAxis', d3.forceX(width/2).strength(0.4))
             //.force('yAxis', d3.forceY(height/2).strength(0.6));
