@@ -88,7 +88,19 @@ function scrapeTables() {
 function scrapeBrackets() {
   return new Promise( (resolve, reject) => {
 
-      //TODO: put resolve and reject in request function
+      request("https://www.ssbwiki.com/Tournament:Sky%27s_Ultimate_Invitational", function(error, response,body) {
+
+        if (!error && response.statusCode === 200) {
+
+          $ = cheerio.load(body);
+
+          resolve();
+
+        } //end if
+
+        else { reject(); }
+
+      }); //end request
 
   }); //end promise
 } //end scrapeBrackets
@@ -173,7 +185,7 @@ function insertTableData(table) {
 */
 
 scrapeTables()
-  //.then(scrapeBrackets) // test with and without parens when function is complete
+  .then(scrapeBrackets) // test with and without parens when function is complete
                           //currently commented since not implemented
                           //.then(scrapeBrackets()) actually "works" - goes to writecsv
                           //.then(scrapeBrackets) does not? tournamentData.csv is never written
