@@ -61,7 +61,7 @@ function bubbleChart() {
           var color = d3.scaleOrdinal(d3.schemeAccent).domain(d3.range(0,data.length)); // this works with any of the included d3 color schemes
           // filter winners to separate array to map colors
           const winners = data.map( (item) => { return item.winner; });
-          console.log(winners);
+          //console.log(winners);
           // remove duplicates
           const uniqueWinners = winners.reduce( (a,b) => {
 
@@ -73,6 +73,9 @@ function bubbleChart() {
           },[]);
           console.log(uniqueWinners);
 
+          /*var color = d3.scaleOrdinal()
+            .domain(uniqueWinners)
+            .range(['#FFFFFF','#40E0D0']);*/ // this maps everything to only 2 colors
 
           
           var nodes = svg.append('g')
@@ -148,11 +151,11 @@ function bubbleChart() {
 
           simulation.on('tick', tick);
 
-          //test data
+          /*test data
           console.log(data);
           data.forEach( (item) => {
             console.log(item.name,item.date,item.entrants,item.winner);
-          });
+          });*/
 
         });
     }
