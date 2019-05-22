@@ -35,6 +35,7 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
      - [ ] find super smash bros ultimate id (h3 tag?)
      - [ ] find bracket link after id
      - [ ] load bracket link
+     - [ ] check if link is smash.gg, challonge
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to csv
    - [ ] expand data visualization

@@ -8,8 +8,14 @@
 
 // import modules
 const axios = require('axios');
+const fs    = require('fs');
+const parse = require('csv-parse');
 
+let parser = parse({delimiter: ','}, function(err, data) {
+    console.log(data);
+});
 
+fs.createReadStream('tournamentData.csv').pipe(parser);
 
 
 
