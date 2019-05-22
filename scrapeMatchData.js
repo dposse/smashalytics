@@ -1,7 +1,6 @@
 /*
-*   second scraping function
-*   goes to the urls in tournamentData, scrapes data from brackets
-*/
+*   original code to scrape brackets from array of urls
+
 function scrapeBrackets() {
   
     //find all urls to scrape
@@ -28,4 +27,4 @@ function scrapeBrackets() {
         }); //end request
   
     }); //end promise
-  } //end scrapeBrackets
+  } //end scrapeBrackets*/
