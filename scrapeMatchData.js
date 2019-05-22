@@ -1,4 +1,19 @@
 /*
+*   scrapeMatchData.js
+*   Daniel Posse
+*   
+*   Reads in array of url strings created by scrapeTournamentData.js
+*   scrapes match data from smash.gg brackets
+*/
+
+// import modules
+const axios = require('axios');
+
+
+
+
+
+/*
 *   original code to scrape brackets from array of urls
 
 function scrapeBrackets() {
