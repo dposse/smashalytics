@@ -37,10 +37,10 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
      - [ ] load bracket link
      - [ ] check if link is smash.gg, challonge
    - [ ] figure out how to get bracket data
-   - [ ] write bracket data to csv
+   - [ ] write bracket data to ~csv~ database
    - [ ] expand data visualization
      - [ ] fix tooltip - while chart is loading/expanding there is no mouseover/mouseout transition animation
-   - [ ] automate tournamentData.csv and bracketData.csv being updated by scraper.js and bracketScraper.js
+   - [ ] automate tournamentData.csv and bracketData.csv being updated by scrapeTournamentData.js and scrapeMatchData.js
    - [ ] use massey method to rank players / make predictions
    - [ ] ML predictions based on match history?
    - [ ] map each winner to unique color - currently there are overlaps
