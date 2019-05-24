@@ -29,14 +29,31 @@ csv.fromPath('tournamentData.csv', {headers: true})
 
         /**
          * TODO
-         *  [ ] - go to data.url
+         *  [X] - go to data.url
          *  [ ] - find bracket link
          *  [ ] - go to bracket url
          *  [ ] - bracket matches into database
          */
+        
+         let bracketUrl = findBracketUrl(data.url);
+
 
 
     })
     .on('end', () => {
         console.log('hey im done');
     });
+
+
+
+async function findBracketUrl( tournamentUrl ) {
+
+    let url;
+    
+    let response = await axios.get(tournamentUrl);
+
+    console.log(response.data);
+
+    return url;
+
+} //end findBracketUrl
