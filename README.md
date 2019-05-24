@@ -1,5 +1,7 @@
 # smashalytics
 
+Demo: https://dposse.github.io/smashalytics/
+
 Data gathering and visualization project using tournament results from Super Smash Brothers games.
 
 Scrapes data from ssbwiki. Will write to csv and use d3.js for visualization.
