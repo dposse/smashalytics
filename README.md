@@ -33,7 +33,7 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [X] ~release alpha version - heroku?~ github pages works
    - [X] ~set node color based on winner~
    - [ ] get to bracket data pages
-     - [X] load pages scraped from tournament table (tournament.url)
+     - [X] ~load pages scraped from tournament table (tournament.url)~
      - [ ] find super smash bros ultimate id (h3 tag?)
      - [ ] find bracket link after id
      - [ ] load bracket link
