@@ -54,6 +54,10 @@ async function findBracketUrl( tournamentUrl ) {
 
     /*console.log(response.data); works, throws out way too much html */
 
+    /*
+     * Current html layout:
+     */
+
     return url;
 
 } //end findBracketUrl
