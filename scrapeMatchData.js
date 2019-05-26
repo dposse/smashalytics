@@ -52,7 +52,7 @@ async function findBracketUrl( tournamentUrl ) {
     
     let response = await axios.get(tournamentUrl);
 
-    console.log(response.data);
+    /*console.log(response.data); works, throws out way too much html */
 
     return url;
 
