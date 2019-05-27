@@ -72,6 +72,9 @@ async function findBracketUrl( tournamentUrl ) {
      *      <a href="/Super_Smash_Bros._Ultimate" title="Super Smash Bros. Ultimate">Super Smash Bros. Ultimate</a>
      *  </i> singles
      * </span>
+     * 
+     * currently get all spans with class mw-headline with cheerio, then iterate through and find the one with correct id
+     *  possible improvement - find a way to get straight to id. $('#Super_Smash_Bros._Ultimate_singles') doesn't work?
      */
 
     const $ = cheerio.load(response.data);
@@ -81,8 +84,18 @@ async function findBracketUrl( tournamentUrl ) {
 
         if ( $(headline).attr('id') === 'Super_Smash_Bros._Ultimate_singles') {
 
-            console.log('found it', index);
-            console.log($(headline).html());
+            //console.log('found it', index);
+            //console.log($(headline).html() + '\n');
+            
+            /*
+            *   $(headline).html() returns
+            *       "<i><a href="[link]" title="...">Super...</a></i> singles"
+            *   this is the html inside the span
+            */
+            
+            console.log($(headline).parent().next().html() + 'd\n');
+            console.log($(headline).parent().next() + 'p\n');
+            // Above gets to the <p> element that has bracket links inside
 
         } //end if
 
