@@ -7,9 +7,10 @@
 */
 
 // import modules
-const axios = require('axios');
-const fs    = require('fs');
-const csv   = require('fast-csv');
+const axios   = require('axios');
+const fs      = require('fs');
+const csv     = require('fast-csv');
+const cheerio = require('cheerio');
 
 csv.fromPath('tournamentData.csv', {headers: true})
     .on('data', data => {
@@ -50,13 +51,21 @@ async function findBracketUrl( tournamentUrl ) {
 
     let url;
     
-    let response = await axios.get(tournamentUrl);
+    const response = await axios.get(tournamentUrl);
 
     /*console.log(response.data); works, throws out way too much html */
 
     /*
      * Current html layout:
+     *  Under the "Results" section in any tournament page there is 
+     * <span class="mw-headline" id="Super_Smash_Bros._Ultimate_singles">
+     *  <i>
+     *      <a href="/Super_Smash_Bros._Ultimate" title="Super Smash Bros. Ultimate">Super Smash Bros. Ultimate</a>
+     *  </i> singles
+     * </span>
      */
+
+    console.log(response);
 
     return url;
 
