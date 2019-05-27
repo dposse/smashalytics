@@ -40,6 +40,7 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
      - [ ] check if link is smash.gg, challonge
    - [ ] figure out how to get bracket data
    - [ ] write bracket data to ~csv~ database
+   - [ ] add accessibility
    - [ ] expand data visualization
      - [ ] fix tooltip - while chart is loading/expanding there is no mouseover/mouseout transition animation
    - [ ] automate tournamentData.csv and bracketData.csv being updated by scrapeTournamentData.js and scrapeMatchData.js
