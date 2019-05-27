@@ -54,6 +54,15 @@ async function findBracketUrl( tournamentUrl ) {
     const response = await axios.get(tournamentUrl);
 
     /*console.log(response.data); works, throws out way too much html */
+    /* axios reponse object: {
+        data: {},
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config: {},
+        request: {}
+    }
+    */
 
     /*
      * Current html layout:
@@ -65,7 +74,8 @@ async function findBracketUrl( tournamentUrl ) {
      * </span>
      */
 
-    console.log(response);
+    const $ = cheerio.load(response.data);
+    
 
     return url;
 
