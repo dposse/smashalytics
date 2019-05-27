@@ -75,7 +75,18 @@ async function findBracketUrl( tournamentUrl ) {
      */
 
     const $ = cheerio.load(response.data);
-    
+    const headlines = $('span.mw-headline');
+
+    headlines.each( (index,headline) => {
+
+        if ( $(headline).attr('id') === 'Super_Smash_Bros._Ultimate_singles') {
+
+            console.log('found it', index);
+            console.log($(headline).html());
+
+        } //end if
+
+    }); //end each
 
     return url;
 
