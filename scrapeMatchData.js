@@ -31,7 +31,7 @@ csv.fromPath('tournamentData.csv', {headers: true})
         /**
          * TODO
          *  [X] - go to data.url
-         *  [ ] - find bracket link
+         *  [X] - find bracket link
          *  [ ] - go to bracket url
          *  [ ] - bracket matches into database
          */
