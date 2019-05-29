@@ -34,8 +34,8 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [X] ~set node color based on winner~
    - [ ] get to bracket data pages
      - [X] ~load pages scraped from tournament table (tournament.url)~
-     - [X] find super smash bros ultimate id (h3 tag?)
-     - [X] find bracket link after id
+     - [X] ~find super smash bros ultimate id (h3 tag?)~
+     - [X] ~find bracket link after id~
      - [ ] check if link is smash.gg, challonge
      - [ ] load bracket link
    - [ ] figure out how to get bracket data
