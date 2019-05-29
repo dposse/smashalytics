@@ -90,11 +90,27 @@ async function findBracketUrl( tournamentUrl ) {
             *   this is the html inside the span
             */
             
-            //console.log($(headline).parent().next() + 'p\n');
-            // Above gets to the <p> element that has bracket links inside
-            //console.log($(headline).parent().next().children() + 'c\n');
-            //console.log($(headline).parent().next().children().next('a') + 'n\n');
-            //console.log($(headline).parent().next().children().next().first() + 'a\n');
+            /*
+                HTML layout of ssbwiki tournament pages:
+
+                <h3>
+                    <!-- HERE IS THE SPAN WE FIND FROM HEADLINES -->
+                    <span class="mw-headline" id="Super_Smash_Bros._Ultimate_singles">
+                        <i>
+                            <a href="/Super_Smash_Bros._Ultimate" title="...">[...]</a>
+                        </i>
+                        " singles"
+                    </span>
+                </h3>
+                <p>
+                    "([num entrants] entrants)"
+                    <br>
+                    <!-- HERE IS THE a ELEMENT WITH THE URL WE WANT -->
+                    <a href="[link to smash.gg or challonge.com page]">Top [#] bracket</a>
+                    <!-- more bracket links below if applicable -->
+                </p>
+
+             */
 
             url = $(headline).parent().next().children().next().first().attr('href');
             console.log(url);
