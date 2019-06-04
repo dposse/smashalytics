@@ -49,5 +49,6 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [ ] map each winner to unique color - currently there are overlaps
 
    visualization ideas  
-    player circle/icon/something, bigger the more wins they have  
-    going to a player's stats - show individual win percentages against other players  
+   - player circle/icon/something, bigger the more wins they have  
+   - going to a player's stats - show individual win percentages against other players  
+   - calculate node radius instead of entrants/7 - scale when adding tournaments

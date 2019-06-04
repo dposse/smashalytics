@@ -13,7 +13,7 @@ const csv     = require('fast-csv');
 const cheerio = require('cheerio');
 
 csv.fromPath('tournamentData.csv', {headers: true})
-    .on('data', data => {
+    .on('data', async (data) => {
         
         /**
          * Data object looks like
@@ -36,7 +36,7 @@ csv.fromPath('tournamentData.csv', {headers: true})
          *  [ ] - bracket matches into database
          */
         
-        let bracketUrl = findBracketUrl(data.url);
+        let bracketUrl = await findBracketUrl(data.url);
 
         console.log(bracketUrl);
         // find out if link is smash.gg or challonge.com
@@ -118,7 +118,7 @@ async function findBracketUrl( tournamentUrl ) {
              */
 
             url = $(headline).parent().next().children().next().first().attr('href');
-            console.log(url);
+            //console.log(url);
 
         } //end if
 

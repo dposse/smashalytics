@@ -151,9 +151,9 @@ function bubbleChart() {
 
           simulation.on('tick', tick);
 
-          /*test data
+          //test data
           console.log(data);
-          data.forEach( (item) => {
+          /*data.forEach( (item) => {
             console.log(item.name,item.date,item.entrants,item.winner);
           });*/
 
