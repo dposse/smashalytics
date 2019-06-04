@@ -36,9 +36,14 @@ csv.fromPath('tournamentData.csv', {headers: true})
          *  [ ] - bracket matches into database
          */
         
-         let bracketUrl = findBracketUrl(data.url);
+        let bracketUrl = findBracketUrl(data.url);
 
+        console.log(bracketUrl);
+        // find out if link is smash.gg or challonge.com
+        let smashRegExp = /smash.gg/;
+        let challongeRegExp = /challonge.com/; 
 
+        console.log(smashRegExp,challongeRegExp);
 
     })
     .on('end', () => {
