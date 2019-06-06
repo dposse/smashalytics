@@ -6,6 +6,8 @@
 *   scrapes match data from smash.gg brackets
 */
 
+debugger;
+
 // import modules
 const axios   = require('axios');
 const fs      = require('fs');
@@ -38,12 +40,27 @@ csv.fromPath('tournamentData.csv', {headers: true})
         
         let bracketUrl = await findBracketUrl(data.url);
 
+        //get out of current iteration if we got undefined for bracketUrl
+        if (bracketUrl === undefined)
+            return;
+
         console.log(bracketUrl);
         // find out if link is smash.gg or challonge.com
         let smashRegExp = /smash.gg/;
         let challongeRegExp = /challonge.com/; 
 
-        console.log(smashRegExp,challongeRegExp);
+        //checking for smash.gg first since most tournaments listed there
+        if ( bracketUrl.match(smashRegExp) !== null ) {
+            //console.log('this tournament is on smash.gg\n');
+        }
+
+        else if ( bracketUrl.match(challongeRegExp) !== null ) {
+            //console.log('this tournament is on challonge.com\n');
+        }
+
+        else {
+            //console.log('Tournament not listed on smash.gg or challonge.com');
+        }
 
     })
     .on('end', () => {
