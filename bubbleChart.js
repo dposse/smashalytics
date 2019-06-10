@@ -6,6 +6,8 @@
 * Author: Daniel Posse
 */
 
+//use module export?
+
 function bubbleChart() {
 
     //implement margin convention from https://bl.ocks.org/mbostock/3019563
