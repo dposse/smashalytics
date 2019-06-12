@@ -32,13 +32,16 @@ Run http-server locally for D3.js, i.e. VSCode live server extension
    - [X] ~change d3 force layout to accommodate the larger nodes~
    - [X] ~release alpha version - heroku?~ github pages works
    - [X] ~set node color based on winner~
-   - [ ] get to bracket data pages
+   - [X] get to bracket data pages
      - [X] ~load pages scraped from tournament table (tournament.url)~
      - [X] ~find super smash bros ultimate id (h3 tag?)~
      - [X] ~find bracket link after id~
-     - [ ] check if link is smash.gg, challonge
-     - [ ] load bracket link
+     - [X] ~check if link is smash.gg, challonge~
+     - [X] ~load bracket link~
    - [ ] figure out how to get bracket data
+     - [ ] for smash.gg
+     - [ ] for challonge.com
+     - [ ] other sites if they show up - maybe throw flag
    - [ ] write bracket data to ~csv~ database
    - [ ] add accessibility
    - [ ] expand data visualization
